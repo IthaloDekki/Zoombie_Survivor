@@ -9,11 +9,13 @@ class Sprite
 {
     public:
         Sprite();
-        Sprite(string file);
+        Sprite(string file, int frameCountW=1, int frameCountH=1);
         ~Sprite();
+        void SetFrame(int frame);
+        void SetFrameCount(int frameCountW, int frameCountH);
         void Open(string file);
         void SetClip(int x, int y, int w, int h);
-        void Render(int x, int y);
+        void Render(int x, int y, int w, int h);
         int GetWidth();
         int GetHeight();
         bool IsOpen();
@@ -23,5 +25,6 @@ class Sprite
         int width;
         int height;
         SDL_Rect clipRect;
-
+        int frameCountW;
+        int frameCountH;
 };
