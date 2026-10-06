@@ -2,6 +2,7 @@
 #include "Component.h"
 #include "SpriteRenderer.h"
 #include "Animator.h"
+#include "Sound.h"
 
 class Zombie : public Component {
     public:
@@ -12,4 +13,5 @@ class Zombie : public Component {
 
     private:
         int hitpoints;
+        Sound deathSound;
 };

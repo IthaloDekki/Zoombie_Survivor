@@ -1,5 +1,6 @@
 #include "Sprite.h"
 #include "Game.h"
+#include "Resources.h"
 
 Sprite::Sprite()
     :   texture(nullptr), frameCountW(1), frameCountH(1)
@@ -12,9 +13,6 @@ Sprite::Sprite(string file, int frameCountW, int frameCountH)
 };
 
 Sprite::~Sprite() {
-    if (texture != nullptr) {
-        SDL_DestroyTexture(texture);
-    }
 };
 
 void Sprite::SetFrame(int frame){
@@ -38,16 +36,7 @@ void Sprite::SetFrameCount(int frameCountW, int frameCountH){
 };
 
 void Sprite::Open(string file) {
-    if (texture != nullptr)
-    {
-        SDL_DestroyTexture(texture);
-        texture = nullptr;
-    }
-
-    texture = IMG_LoadTexture(
-        Game::GetInstance().GetRenderer(),
-        file.c_str()
-    );
+    texture = Resources::GetImage(file);
 
     if (texture == nullptr)
     {

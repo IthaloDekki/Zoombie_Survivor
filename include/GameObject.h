@@ -1,3 +1,6 @@
+#ifndef GAMEOBJECT_H
+#define GAMEOBJECT_H
+
 #include <vector>
 #include "Rect.h"
 #include "Component.h"
@@ -31,3 +34,5 @@ class GameObject {
             std::vector<Component*> components;
             bool isDead;
 };
+
+#endif
